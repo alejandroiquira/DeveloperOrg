@@ -1,0 +1,23 @@
+<template>
+    <!-- Your Bike Selection - LPage-->
+    
+    <div class="wrapper">
+        
+    <lightning-card title="Display Record ID and Object API Name">
+        <h2><b>RecordId=</b> {recordId}</h2> 
+    </lightning-card>
+    <header class="header">Select a Bike</header>
+    
+    
+    <section class="content">
+        <div class="columns">
+        <main class="main" >
+            <c-list onproductselected={handleProductSelected}></c-list>
+        </main>
+        <aside class="sidebar-second">
+            <c-detail product-id={selectedProductId}></c-detail>
+        </aside>
+        </div>
+    </section>
+    </div>
+</template>
