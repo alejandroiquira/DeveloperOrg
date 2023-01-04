@@ -1,7 +1,6 @@
 <template>  
-    <lightning-card title="Order products" icon-name="action:download">
+    <lightning-card title="Order products" icon-name="standard:partner_fund_claim">
 
-      <h2><b>Order RecordId:</b> {recordId}</h2>
       <lightning-button 
         slot="actions" 
         label="Activate" 
@@ -12,9 +11,10 @@
             key-field="Id" 
             data={products} 
             columns={cols}  
+            hide-checkbox-column="true"
             >
         </lightning-datatable>  
       </div>  
 
     </lightning-card>  
-  </template>  
+  </template>

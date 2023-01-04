@@ -1,8 +1,7 @@
 <template>  
-    <lightning-card title="Available products" icon-name="action:download">
-
-      <h2><b>Order RecordId:</b> {recordId}</h2>
-      <lightning-button 
+    <lightning-input label="Enter a product name" value={searchKey} onchange={handleOnChange}> </lightning-input>
+    <lightning-card title="Available products" icon-name="standard:product">
+        <lightning-button 
         slot="actions" 
         label="Add to Order" 
         onclick={addProducts}>
@@ -11,8 +10,9 @@
         <lightning-datatable 
             key-field="Id" 
             data={products} 
-            columns={cols}  
-            >
+            columns={cols} 
+            sortable="true"
+            > 
         </lightning-datatable>  
       </div>  
     </lightning-card>  
