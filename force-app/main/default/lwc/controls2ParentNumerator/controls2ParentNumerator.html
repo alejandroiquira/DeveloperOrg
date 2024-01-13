@@ -1,0 +1,10 @@
+<template>
+    Message: {othermessage}    
+    Counter: <lightning-formatted-number value={counter}></lightning-formatted-number>
+    <c-controls2 
+        onadd={handleIncrement}
+        onsubstract={handleDecrement}
+        onmultiply={handleMultiply}
+    >
+    </c-controls2>
+</template>
