@@ -20,16 +20,16 @@
         onclick={handleMultiply}
     ></lightning-button>
 
-    <lightning-layout-item onmultiplybutton={handleMultiply2}>
+    <lightning-layout-item onmultiplybutton={handleMultiplyBubble}>
         <template for:each={factors} for:item="factor">
-            <c-button
+            <c-controls2button
                 key={factor}
                 label={factor}
                 data-factor={factor}
+                icon="utility:close"
             >
-            </c-button>
+            </c-controls2button>
         </template>
     </lightning-layout-item>
-
 
 </template>

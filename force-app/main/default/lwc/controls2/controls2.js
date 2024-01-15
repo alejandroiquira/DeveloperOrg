@@ -11,23 +11,20 @@ export default class Controls2 extends LightningElement {
         this.dispatchEvent(new CustomEvent('add'))
     }
 
-    handleMultiply(event){
+    //Simple custom event Child parent communication
+    handleMultiply(event) {
         const factor = event.target.dataset.factor;
-        let message = "myultiply by:" + factor;
-        console.log('Controls2 handleMultiply:'+ message);
-        this.dispatchEvent(new CustomEvent('multiply',{
-            detail: {
-              factorvalue  : factor, messagesent : message
-            }
+        this.dispatchEvent(new CustomEvent('multiply', {
+          detail: factor
         }));
-    }
+      }
     
-    handleMultiply2(event){
+    handleMultiplyBubble(event){
         console.log('Controls2 handleMultiply2');
         const factor = event.target.dataset.factor;
-        let message = "myultiply using:" + factor;
+        let message = "myultiply bubble event:" + factor;
         console.log('Controls2 factor 1:'+message);
-        this.dispatchEvent(new CustomEvent('multiply', {
+        this.dispatchEvent(new CustomEvent('multiplybubbles', {
             detail : { 
                 factorvalue : factor, messagesent : message
             }

@@ -1,7 +1,7 @@
-import { LightningElement } from 'lwc';
+import { LightningElement, api } from 'lwc';
 
 export default class Controls2ParentNumerator extends LightningElement {
-    counter = 0;
+    @api counter = 0;
     othermessage = '';
     handleIncrement(){
         this.counter++;
@@ -11,12 +11,18 @@ export default class Controls2ParentNumerator extends LightningElement {
         this.counter--;
     }
 
-    handleMultiply(event) {
+   handleMultiplyBubbles(event) {
         console.log('Controls2ParentNumerator 1');
         const factor = event.detail.factorvalue;
         this.counter *= factor;
         console.log('Controls2ParentNumerator 2');
         this.othermessage = event.detail.messagesent;
         console.log('Controls2ParentNumerator 3:'+this.othermessage);
+      }
+
+      
+      handleMultiply(event) {
+        const factor = event.detail;
+        this.counter *= factor;
       }
 }
