@@ -20,10 +20,10 @@ export default class Controls2 extends LightningElement {
       }
     
     handleMultiplyBubble(event){
-        console.log('Controls2 handleMultiply2');
+        console.log('Controls2 handleMultiplyBubble');
         const factor = event.target.dataset.factor;
         let message = "myultiply bubble event:" + factor;
-        console.log('Controls2 factor 1:'+message);
+        console.log('Controls2 message 1:'+message);
         this.dispatchEvent(new CustomEvent('multiplybubbles', {
             detail : { 
                 factorvalue : factor, messagesent : message

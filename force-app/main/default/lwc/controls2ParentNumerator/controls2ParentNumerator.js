@@ -17,12 +17,20 @@ export default class Controls2ParentNumerator extends LightningElement {
         this.counter *= factor;
         console.log('Controls2ParentNumerator 2');
         this.othermessage = event.detail.messagesent;
-        console.log('Controls2ParentNumerator 3:'+this.othermessage);
+        console.log('Controls2ParentNumerator 3 message:'+this.othermessage);
       }
 
       
       handleMultiply(event) {
         const factor = event.detail;
+        this.othermessage = 'Multiply using single CustomEvent';
         this.counter *= factor;
       }
+
+      @api
+      maximizeCounter(){
+        console.log('maximizeCounter this.counter:'+this.counter);
+        this.counter =+ 1000000;
+      };
+
 }
