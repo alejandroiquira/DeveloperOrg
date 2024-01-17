@@ -1,6 +1,8 @@
 <template>
     <p>Message: {othermessage}</p>
-    <p>Start Counter: <lightning-formatted-number value={counter}></lightning-formatted-number></p>
+    <p>Counter: <lightning-formatted-number value={counter}></lightning-formatted-number></p>
+    <p>counter with get and set: <lightning-formatted-number value={counter2}></lightning-formatted-number></p>
+    <p>prior counter: <lightning-formatted-number value={counter}></lightning-formatted-number></p>
     <c-controls2 
         onadd={handleIncrement}
         onsubstract={handleDecrement}
