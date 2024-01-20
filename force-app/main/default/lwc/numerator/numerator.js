@@ -22,8 +22,9 @@ export default class Numerator extends LightningElement {
       this.counter--;
     }
     handleMultiply(evt) {
+      console.log("numerator 1");
       const factor = evt.detail;
-      console.log("numerator factor"+factor);
+      console.log("numerator 2 factor"+factor);
       this.counter*=factor;
     }
     @api
