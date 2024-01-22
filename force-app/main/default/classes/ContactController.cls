@@ -50,4 +50,13 @@ public with sharing class ContactController {
         }
         update contactsForUpdate;
     }
+    
+    @AuraEnabled(cacheable=true)
+    public static list<contact> getContacts(){
+        try {
+            return [select FirstName, LastName, Email FROM contact limit 10];           
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
 }

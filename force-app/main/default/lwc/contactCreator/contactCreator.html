@@ -1,10 +1,11 @@
 <template>
-    <lightning-layout>
-        <lightning-record-form
-            object-api-name={contactobject}
-            fields={fields}
-            onsuccess={handlesuccess}>
-        </lightning-record-form>
-    </lightning-layout>
-    
+    <lightning-card>
+        <lightning-layout>
+            <lightning-record-form
+                object-api-name={contactobject}
+                fields={fields}
+                onsuccess={handlesuccess}>
+            </lightning-record-form>
+        </lightning-layout>
+    </lightning-card>
 </template>

@@ -1,0 +1,14 @@
+<template>
+    <lightning-card>
+        Record Id: {recordId}
+        <template if:true={orders.data}>
+            <lightning-datatable
+                key-field="Id"
+                data={orders.data}
+                columns={columns}
+            >
+    
+            </lightning-datatable>
+        </template>
+    </lightning-card>
+</template>
