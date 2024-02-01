@@ -5,6 +5,7 @@
  import { ShowToastEvent } from 'lightning/platformShowToastEvent'
  import {publish,MessageContext} from 'lightning/messageService';
  import UPDATE_ORDER_PRODUCT_FILE from '@salesforce/messageChannel/updateOrderProducts__c';
+ import invokeService from '@salesforce/apex/MyRestCalloutClass.invokeRestWithoutAuth';
  
  const COLS=[ 
     {label : 'Product Name',fieldName : 'productLink',type : 'url',
@@ -61,7 +62,17 @@
       })
     }  
 
-   
+    invokeWebService(){
+      invokeRestNoAuth()
+      .then(result => {
+          console.log('REST callout successful. Result:', result);
+          // Process the result as needed
+      })
+      .catch(error => {
+          console.error('Error making REST callout:', error);
+      });
+    }
+
     showToast(title, message, variant, mode) {
       const event = new ShowToastEvent({
           title: title,

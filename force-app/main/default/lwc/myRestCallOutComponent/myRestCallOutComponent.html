@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="REST Service Invocation">
+        <div class="slds-m-around_medium"> <!-- Using Fetch API-->
+            <lightning-button
+                label="Invoke Rest from Lwc without Auth"
+                onclick={invokeRestFromLwcNoAuth}>
+
+            </lightning-button>
+        </div>
+        <div class="slds-m-around_medium"> <!-- Using Fetch API-->
+            <lightning-button label="Invoke Service from Lwc with Auth" onclick={invokeRestFromLwcWithAuth}></lightning-button>
+        </div>
+        <div class="slds-m-around_medium">
+            <lightning-button label="Invoke Service From Apex without Auth" onclick={invokeRestFromApexNoAuth}></lightning-button>
+        </div>
+        <div class="slds-m-around_medium">
+            <lightning-button label="Invoke Service From Apex with Auth" onclick={invokeRestFromApexWithAuth}></lightning-button>
+        </div>
+    </lightning-card>
+</template>

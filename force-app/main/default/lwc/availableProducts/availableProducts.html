@@ -6,6 +6,11 @@
         label="Add to Order" 
         onclick={addProducts}>
       </lightning-button>  
+      <lightning-button 
+      slot="actions" 
+      label="Invoke web service" 
+      onclick={invokeWebService}>
+    </lightning-button>  
       <div class="slds-box">  
         <lightning-datatable 
             key-field="Id" 
