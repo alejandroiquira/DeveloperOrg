@@ -8,5 +8,8 @@
             >
            </lightning-datatable>
         </template>
+        <template if:true={errors}>
+            {errors}    
+        </template>
     </lightning-card>
 </template>
