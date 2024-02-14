@@ -14,7 +14,7 @@ export default class AccountList extends LightningElement {
     accounts;
 
     get errors(){
-        return (this.accounts.errors)?
-        this.accounts.errors : [];
+        return (this.accounts.error)?
+        this.accounts.error : [];
     }
 }
