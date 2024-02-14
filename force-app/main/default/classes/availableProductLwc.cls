@@ -2,13 +2,15 @@ public with sharing class availableProductLwc {
 
         // Returns a wrapper with the list of available products
         @AuraEnabled(cacheable=true)  
-        public static List<availableProductWrapper> gePriceBookProducts(Id orderId){  
-                        
+        public static List<availableProductWrapper> gePriceBookProducts(String orderId, String keyWord){  
+            system.debug('gePriceBookProducts keyWord:'+keyWord);
             Order o = [select pricebook2id  from order where id=: orderID];
             Id pricebookId = getPricebookid(o.pricebook2id);
+            String product = '%' + keyWord+'%';
             list<availableProductWrapper> apWrapperList = new list<availableProductWrapper>();
             for ( PricebookEntry pbE: [SELECT Id, Product2.Name, UnitPrice, Product2Id From PricebookEntry 
-                                          where Pricebook2id=:pricebookId limit 8]  ){
+                                          where Pricebook2id=:pricebookId 
+                                          and Product2.Name like :product limit 8]  ){
     
                 apWrapperList.add(new availableProductWrapper(pbE));
             }

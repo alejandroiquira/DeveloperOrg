@@ -21,24 +21,33 @@
     @api recordId;
     cols=COLS;  
     products;
+    @api searchKey ='';
 
     @wire(MessageContext)
     messageContext;
   
-    @wire(gePriceBookProducts,{orderId: '$recordId'}) productList (result){
+    @wire(gePriceBookProducts,{orderId: '$recordId', keyWord : '$searchKey'}) 
+    productList (result){
       if(result.data){
         this.products=result.data;
         console.log("productlist:"+result.data);
         console.dir(result.data);
       }
     };  
-   
-    searchKey ='';
+
     handleOnChange(event){
-        let key=event.target.value;
-        console.log("Search key recordId:"+this.recordId);
-        
-      }
+        this.searchKey = event.target.value;
+       /* //this code gets the results from apex, but it does not updates the results in the UI
+        let keyW = event.target.value;
+        gePriceBookProducts({orderId: '$recordId', keyWord : keyW})
+        .then( result => {
+          console.log("Search for key:"+keyW+ 'list:'+result);
+          this.products = result.data;
+        })
+        .catch(error => {
+          console.log("Error in Search key recordId:"+error);
+        });*/
+    }
 
     addProducts(){  
       console.log("addProducts"+this.recordId);
