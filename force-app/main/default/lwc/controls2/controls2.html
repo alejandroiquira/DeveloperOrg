@@ -20,6 +20,7 @@
         onclick={handleMultiply}
     ></lightning-button>
 
+    <!-- onmultiplybutton is a bubbled event dispatched from Controls2button-->
     <lightning-layout-item onmultiplybutton={handleMultiplyBubble}>
         <template for:each={factors} for:item="factor">
             <c-controls2button
