@@ -55,11 +55,12 @@ public with sharing class ContactController {
     public static list<contact> getContacts(){
         try {
             System.debug('getContacts query:');        
+            /* used to test error handling in lwc
             if (true) {
                 // Throw an AuraHandledException with a custom error message
                 throw new AuraHandledException('Input cannot be null or empty');
-            }
-            return [select FirstName, LastName, Email FROM contact limit 10];           
+            }*/
+            return [select FirstName, LastName, Email FROM contact limit 5];           
         } catch (Exception e) {
             System.debug('getContacts error:'+e);
             throw new AuraHandledException(e.getMessage());

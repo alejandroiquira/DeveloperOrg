@@ -1,13 +1,34 @@
 <template>
-    <lightning-card>
-        <div class="slds-box">
-            <template >
+    
+    <lightning-card title="Select contact">
 
-            </template>
-            <c-contact-detail >
+        <lightning-layout class="slds-m-around_medium">
 
-            </c-contact-list>
-
-        </div>
+            <lightning-layout-item>
+                <template for:each={contacts.data} for:item="con">
+            
+                    <c-contact-detail contact={con} onselectedcontact={handleOnselectedContact} key={con}>
+                        
+                    </c-contact-detail>
+                    
+                </template>
+    
+            </lightning-layout-item>
+    
+            <lightning-layout-item class="slds-m-around_medium">
+                <p>Selected contact LastName: {selectedContact.LastName}</p>
+                <p>selected contact FirstName: {selectedContact.FirstName}</p>
+                <p>contact email: <lightning-formatted-email value={selectedContact.Email}></lightning-formatted-email></p>
+            </lightning-layout-item>
+        </lightning-layout>
     </lightning-card>
+
+
+                
+
+        <!-- div class="slds-box" onclick={handleOnselectedContact}>
+            
+                contact name: {con.name}
+        </div -->
+
 </template>
