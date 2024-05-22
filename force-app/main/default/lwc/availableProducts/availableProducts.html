@@ -14,11 +14,15 @@
       <div class="slds-box">  
         <lightning-datatable 
             key-field="Id" 
-            data={products} 
+            data={paginatedData} 
             columns={cols} 
-            sortable="true"
-            > 
+            sortable="true">
         </lightning-datatable>  
-      </div>  
+      </div>
+      <lightning-layout-item>
+        <c-paginator onnextpage={handleNextPage} onpreviouspage={handlePreviousPage} isfirstpage={isFirstPage} islastpage={isLastPage}>
+
+        </c-paginator>
+      </lightning-layout-item>
     </lightning-card>  
   </template>  

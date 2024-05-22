@@ -19,9 +19,15 @@
 
  export default class DataTableInLwc extends LightningElement {
     @api recordId;
-    cols=COLS;  
-    products;
+    cols = COLS;  
+    products = [];
+    isFirstPage = true;
+    isLastPage = false;
+    currentPage = 1;
+    pageSize = 3;
+
     @api searchKey ='';
+
 
     @wire(MessageContext)
     messageContext;
@@ -29,12 +35,30 @@
     @wire(gePriceBookProducts,{orderId: '$recordId', keyWord : '$searchKey'}) 
     productList (result){
       if(result.data){
-        this.products=result.data;
+        this.products = result.data;
         console.log("productlist:"+result.data);
         console.dir(result.data);
       }
-    };  
+    };
 
+    get paginatedData(){
+      const start = (this.currentPage - 1) * this.pageSize;
+      const end = start + this.pageSize;
+      return this.products.slice(start,end);
+    }
+
+    handlePreviousPage(){
+      console.debug('Previous page:'+this.currentPage);
+      this.currentPage--;
+      this.isFirstPage = (this.currentPage = 1)? true : false;
+    }
+    
+    handleNextPage(){
+      console.debug('Next  page:'+this.currentPage);
+     this.currentPage++;
+     this.isLastPage = (this.currentPage >=  Math.ceil(this.products.length / this.pageSize ))? true : false;
+    }
+    
     handleOnChange(event){
         this.searchKey = event.target.value;
        /* //this code gets the results from apex, but it does not updates the results in the UI

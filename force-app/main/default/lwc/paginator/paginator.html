@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="Paginator">
+        <lightning-layout-item>
+            <lightning-button label="Next" onclick={handleNext} disabled={isLastPage}></lightning-button> 
+        </lightning-layout-item>
+        Current Page{currentpage}
+        <lightning-layout-item>
+            <lightning-button label="Previous" onclick={handlePrevious} disabled={isFirstPage}> </lightning-button>
+        </lightning-layout-item>
+    </lightning-card>
+</template>
