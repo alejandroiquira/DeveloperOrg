@@ -1,0 +1,17 @@
+<template>
+    <lightning-card>
+        <template if:true="{contacts.data}">
+            <lightning-input label="search contact" value="{keyword}" onchange="{handleChange}">
+
+            </lightning-input>
+            <lightning-datata-table
+                key-field="Id"
+                data={contacts.data}
+                columns={cols}
+                hide-checkbox-column>
+            </lightning-datatable>
+
+        </template>
+    </lightning-card>
+    
+</template>
