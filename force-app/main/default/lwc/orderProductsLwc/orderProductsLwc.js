@@ -18,7 +18,7 @@ import { LightningElement,wire,track,api} from 'lwc';
     {label:'Total Price',fieldName:'TotalPrice', type:'currency'}  
   ];  
 
-  export default class DataTableInLwc extends LightningElement {  
+  export default class DataTableInLwc extends LightningElement {
   
     @api recordId;
     cols=COLS;  
