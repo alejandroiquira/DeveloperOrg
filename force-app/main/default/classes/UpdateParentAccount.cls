@@ -1,6 +1,6 @@
 public  class UpdateParentAccount implements System.Queueable{
     
-    //use for trailhead Asynchronous Apex, module Use Queueable Apex
+    //use for trailhead Asynchronous Apex, module Use Queueable Apex - Example
     private List<Account> accounts;
     private Id parentID;
     
