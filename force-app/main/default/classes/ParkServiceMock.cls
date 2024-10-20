@@ -1,3 +1,4 @@
+// Apex Integration Services module - Apex SOAP Callout - Challenge Excercise
 @isTest
 global class ParkServiceMock implements WebServiceMock  {
    global void doInvoke(
@@ -10,12 +11,14 @@ global class ParkServiceMock implements WebServiceMock  {
            String responseNS,
            String responseName,
            String responseType) {
-        // start - specify the response you want to send
-        parksServices.byCountryResponse  response_x = 
-            new parksServices.byCountryResponse ();
-        response_x.return_x[0]='Park1';
-        response_x.return_x[1]='Park2';
-        // end
-        response.put('response_x', response_x); 
+            System.debug('ParkServiceMock requestName:'+requestName);
+            // start - specify the response you want to send
+            ParkService.byCountryResponse  response_x = 
+               new ParkService.byCountryResponse ();
+            response_x.return_x=new String[]{'Park1','Park2'};
+            //response_x.return_x[0]='Park1';
+            //response_x.return_x[1]='Park2';
+            // end
+response.put('response_x', response_x); 
    }
 }
