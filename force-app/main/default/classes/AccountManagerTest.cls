@@ -2,34 +2,32 @@
  * Rest web service example
  */
 @isTest
-private class AccountManagerTest {
+public class AccountManagerTest {
 
     @isTest
-    static void myUnitTest() {
+    public static void getAccountTest() {
         
         Id accId = createAccount(); 
         // Set up a test request
-        system.debug('test 1');
+        system.debug('AccountManagerTest 1');
         Contact cont = new Contact (lastName = 'TestContact', accountid = accId);
         insert cont;
-        RestRequest request = new RestRequest();
-        request.requestUri =
-            'https://alejito-dev-ed.lightning.force.com/services/apexrest/Account/'
-            + accId + '/contacts/';
-        request.httpMethod = 'GET';
-        RestContext.request = request;
-        // Call the method to test
-        system.debug('test 2');
-        Account thisCase = AccountManager.getAccount();
-        system.debug('test 3');
-        // Verify results
-        System.assert(thisCase != null);
-        //System.assertEquals('Test record', thisCase.Subject);
+        system.debug('AccountManagerTest 2 cont:'+cont);
+        RestRequest rq = new RestRequest();
+        rq.requestURI = 'https://brave-shark-aopfgn-dev-ed.lightning.force.com/services/apexrest/Accounts/' + accId + '/contacts';
+        rq.httpMethod = 'GET';
+        //rq.requestParams.put(status, 'Active');
+        rq.requestBody = Blob.valueOf('{"name":"TestAccount","phone":"123456"}');
+        RestContext.request = rq;
+        Account acc = AccountManager.getAccount();
+        Assert.isTrue(acc != null);
+        Assert.areEqual(acc.Name, 'Test record');
     }
 
     public static id createAccount(){
         Account acc = new Account (Name = 'Test record');
         insert acc;
+        system.debug('AccountManagerTest createAccount:'+acc);
         return acc.id;
     }
 }
