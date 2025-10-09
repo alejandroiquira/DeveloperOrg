@@ -9,7 +9,10 @@
     "**/.git": true,
     "**/.svn": true,
     "**/.hg": true,
+<<<<<<< Updated upstream
     "**/CVS": true,
+=======
+>>>>>>> Stashed changes
     "**/.DS_Store": true,
     "**/Thumbs.db": true,
     "**/.apivcs": true,
@@ -22,5 +25,10 @@
     "**/.settings": true,
     "**/.exchange_modules_tmp": true,
     ".mule": true
+<<<<<<< Updated upstream
   }
+=======
+  },
+  "xml.preferences.showSchemaDocumentationType": "none"
+>>>>>>> Stashed changes
 }
