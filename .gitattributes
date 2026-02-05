@@ -1,0 +1,8 @@
+# Tratar todos los archivos como texto y normalizarlos automáticamente
+text=auto
+
+
+# Asegurar que archivos específicos siempre mantengan su formato
+*.bat      text eol=crlf
+*.sh       text eol=lf
+*.png      binary
