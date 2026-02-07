@@ -1,10 +1,10 @@
+// Apex Integration Services module - Apex SOAP Callout - Challenge Excercise
 public class ParkLocator {
-
-    public static String[] country (){
+    public static String[] country (String country){
         String [] s;
-        parksServices.ParksImplPort  calculator = new  parksServices.ParksImplPort ();
+        ParkService.ParksImplPort  calculator = new  ParkService.ParksImplPort ();
         
-        s = calculator.byCountry('Germany');
+        s = calculator.byCountry(country);
         System.debug('parques:'+s);
         return s;
     }
