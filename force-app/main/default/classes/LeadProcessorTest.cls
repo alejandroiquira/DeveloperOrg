@@ -2,14 +2,13 @@
 private class LeadProcessorTest {
     @testSetup
     static void setup() {
-        List<Lead> leads = new List<Lead>();
-        List<Contact> contacts = new List<Contact>();
-        // insert 10 accounts
-        for (Integer i=0;i<10;i++) {
-            leads.add(new Lead(lastName='Lead '+i, 
-            LeadSource='test source', Company='test company'+i));
+        List<Lead> leads = new List<Lead>();        // insert 10 accounts
+        for (Integer i=0;i<200;i++) {
+            leads.add(new Lead(lastName=i+'', Company='test company'+i, LeadSource=''));
         }
+        system.debug('Leads:'+leads);
         insert leads;
+        system.debug('Leads inserted:'+leads);
     }
     @isTest static void test() {
         Test.startTest();
