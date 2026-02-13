@@ -33,4 +33,9 @@
         <name>StaticResource</name>
     </types>
     <version>54.0</version>
+    <types>
+        <members>Account</members>
+        <members>Contact</members>
+        <name>CustomObject</name>
+    </types>
 </Package>
