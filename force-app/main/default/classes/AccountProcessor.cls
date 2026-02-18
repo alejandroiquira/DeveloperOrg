@@ -4,16 +4,10 @@ public with sharing class AccountProcessor {
     @future
     public static void countContacts(list<Id> accIds){
         list<Account> accsList = new list<Account>();
-        map<Id,Account> accsMap = new map<Id, Account>([select id, name, Number_Of_Contacts__c from Account Where id in :accIds]);
-        map<Object,Object> conXAcc = new map<Object,Object>();
-
-        for (AggregateResult cA : [select count(id) numCont, accountId from Contact Where accountId in :accIds group by accountId]){
-            conXAcc.put(cA.get('accountId'), cA.get('numCont'));
-        }
-
-        for(Account acc : accsMap.values()){
+        for(Account acc : [select id, name, Number_Of_Contacts__c, (select id from contacts) from Account Where id in :accIds]){
             Account a = acc;
-            a.Number_Of_Contacts__c = conXAcc.containsKey(a.Id)? (Integer)conXAcc.get(a.Id) : 0;
+            system.debug('AccountProcessor countContacts size:'+acc.contacts.size());
+            a.Number_Of_Contacts__c = (acc.contacts.size() > 0) ? acc.contacts.size() : 0;
             accsList.add(a);
         }
 
